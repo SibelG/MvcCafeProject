@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Restaurant_Project.Repositories
 {
-    public class Our_AdviceRepo : GenericRepo<Tbl_Our_Advice>
+    public class OurAdviceRepo : GenericRepo<Tbl_Our_Advice>
     {
     }
 }

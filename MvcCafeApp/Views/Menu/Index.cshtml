@@ -57,6 +57,7 @@
                                                         <div class="modal-body">
                                                             <form method="post" action="/Menu/MenuEdit/@item.MenuId">
                                                                 <div class="modal-body">
+                                                                    <input type="hidden" name="MenuId" value="@item.MenuId" />
                                                                     <label>Title</label>
                                                                     <input type="text" name="Title" class="form-control" value="@item.Title">
                                                                     <label>Price</label>

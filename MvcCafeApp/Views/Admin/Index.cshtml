@@ -40,8 +40,9 @@
                                             <div class="modal-body">
                                                 <form method="post" action="/Admin/AdminGet/@item.AdminId">
                                                     <div class="modal-body">
+                                                        <input type="hidden" name="AdminId" value="@item.AdminId" />
                                                         <label>User Name</label>
-                                                        <input type="text"  class="form-control" value="@item.UserName" disabled="true">
+                                                        <input type="text" class="form-control" value="@item.UserName" disabled="true">
                                                         <br />
                                                         <label>New Password</label>
                                                         <input type="text" name="Password" class="form-control">

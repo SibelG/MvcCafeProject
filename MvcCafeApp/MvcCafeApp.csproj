@@ -159,7 +159,7 @@
     <Compile Include="Repositories\AboutRepo.cs" />
     <Compile Include="Repositories\MenuRepo.cs" />
     <Compile Include="Repositories\WhySelectRepo.cs" />
-    <Compile Include="Repositories\Our_AdviceRepo.cs" />
+    <Compile Include="Repositories\OurAdviceRepo.cs" />
     <Compile Include="Repositories\ImagesRepo.cs" />
     <Compile Include="Repositories\BookingRepo.cs" />
   </ItemGroup>
@@ -642,6 +642,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AdviceMenu\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

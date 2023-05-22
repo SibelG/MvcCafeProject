@@ -12,7 +12,7 @@ namespace Restaurant_Project.Controllers
     {
         // GET: OnerilenMenu
         
-        Our_AdviceRepo repo = new Our_AdviceRepo();
+        OurAdviceRepo repo = new OurAdviceRepo();
         public ActionResult Index()
         {
             var advices = repo.List();
@@ -22,7 +22,7 @@ namespace Restaurant_Project.Controllers
         public ActionResult AdviceEdit(int id)
         {
             var adviceEdit = repo.Find(x => x.AdviceId == id);
-            return View();
+            return View(adviceEdit);
         }
         [HttpPost]
         public ActionResult AdviceEdit(Tbl_Our_Advice p)
@@ -37,6 +37,28 @@ namespace Restaurant_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Tbl_Our_Advice/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Tbl_Our_Advice/Create		AdviceId	0	int
+
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "AdviceId,Title,Description1,Description2,Image_Address")] Tbl_Our_Advice tbl_Our_Advice)
+        {
+            if (ModelState.IsValid)
+            {
+                repo.Tadd(tbl_Our_Advice);
+                return RedirectToAction("Index");
+            }
+
+            return View(tbl_Our_Advice);
+        }
 
     }
 }
