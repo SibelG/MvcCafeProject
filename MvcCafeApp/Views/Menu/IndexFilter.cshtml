@@ -1,0 +1,104 @@
+﻿@model List<Restaurant_Project.Models.Entity.Tbl_Menu_Foods>
+@{
+    ViewBag.Title = "IndexFilter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Menu List</h3>
+<br />
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <select id="filtre" class="form-control" onchange="filterMenu()">
+                    <option value="All" selected>All</option>
+                    <option value="Drink">Drinks</option>
+                    <option value="ContentMain">Content Main</option>
+                    <option value="Salad">Salads</option>
+                    <option value="Desert">Deserts</option>
+                </select>
+                <br />
+            </div>
+            <div class="col-md-12">
+                <div class="card card-plain table-plain-bg">
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+
+                            <th style="width: 15%;">Product Image</th>
+                            <th style="width: 20%;">Product name</th>
+                            <th style="width: 30%;">Description</th>
+                            <th style="width: 10%;">Price</th>
+                            <th style="width: 10%;">Category</th>
+                            <th style="width: 10%;">Update</th>
+                            <th style="width: 10%;">Delete</th>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="@item.ImageUrl" alt="Avatar" style="border-radius: 50px; max-width: 50px; height: auto;">
+                                        </td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Category.CategoryName</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#@item.MenuId">Update</button>
+                                            <div class="modal fade" id="@item.MenuId" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4>Product Information Edit Page</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="/Menu/MenuEdit/@item.MenuId">
+                                                                <div class="modal-body">
+                                                                    <label>Title</label>
+                                                                    <input type="text" name="Title" class="form-control" value="@item.Title">
+                                                                    <label>Price</label>
+                                                                    <input type="text" name="Price" class="form-control" value="@item.Price">
+                                                                    <label>Image Url</label>
+                                                                    <input type="text" name="ImageUrl" class="form-control" value="@item.ImageUrl">
+                                                                    <label>Description</label>
+                                                                    <textarea class="form-control" name="Description" rows="5">@item.Description</textarea>
+                                                                </div>
+                                                                <br />
+                                                                <div class="text-center">
+                                                                    <button type="submit" class="btn btn-success">Update</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="/Menu/MenuDelete/@item.MenuId" class="btn btn-danger btn-sm">Delete</a></td>
+                                        <td></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function filterMenu() {
+                    var selectedValue = document.getElementById("filtre").value;
+
+                    if (selectedValue === "All") {
+                        window.location.href = "/Menu/Index";
+                    } else {
+                        window.location.href = "/Menu/IndexFilter?filtre=" + selectedValue;
+                    }
+                }
+
+            </script>
+
+        </div>
+    </div>
+</div>

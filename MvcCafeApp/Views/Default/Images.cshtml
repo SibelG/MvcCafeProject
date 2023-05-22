@@ -1,0 +1,12 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Images>
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-8">
+        <div class="gallery-item">
+
+            <img src="@item.ImageUrl" style="width:100%; height:300px;" alt="" class="img-fluid">
+
+        </div>
+    </div>
+}

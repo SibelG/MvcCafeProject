@@ -1,0 +1,73 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Password Update Panel</h2>
+<br />
+<div class="col-md-12">
+    <div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-responsive-sm">
+                <thead>
+             
+                <th>User Name</th>
+                <th>Edit</th>
+
+
+
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                       
+                            <td>@item.UserName</td>
+
+                            <td>
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#@item.AdminId">Update</button>
+                                <div class="modal fade" id="@item.AdminId" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4>Product Information Update Page</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="/Admin/AdminGet/@item.AdminId">
+                                                    <div class="modal-body">
+                                                        <label>User Name</label>
+                                                        <input type="text"  class="form-control" value="@item.UserName" disabled="true">
+                                                        <br />
+                                                        <label>New Password</label>
+                                                        <input type="text" name="Password" class="form-control">
+
+                                                    </div>
+                                                    <br />
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-success">Update</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+
+
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+</div>
+<a href="/Admin/AdminAdd/" class="btn btn-primary">New Admin Add <i class="nc-icon nc-tap-01"></i></a>

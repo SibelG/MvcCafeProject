@@ -1,0 +1,16 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Why_Select>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4">
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <span>@item.Title</span>
+    
+                <p>@item.Description</p>
+            </div>
+        </div>
+    }
+
+</div>

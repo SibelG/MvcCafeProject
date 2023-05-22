@@ -1,0 +1,19 @@
+﻿@model Restaurant_Project.Models.Entity.Tbl_Login
+
+@{
+    ViewBag.Title = "LoginEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3> Giriş Güncelleme Sayfası</h3>
+<br />
+<form method="post">
+    @Html.Label("Title")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sub Informaton")
+    @Html.TextBoxFor(x => x.Sub_Information, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Update</button>
+</form>

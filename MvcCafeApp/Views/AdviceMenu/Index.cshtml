@@ -1,0 +1,73 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Our_Advice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Advice Menu</h2>
+
+
+
+<div class="card-body table-full-width table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <th style="width: 15%;">Image</th>
+        <th style="width: 20%;">Name</th>
+        <th style="width: 20%;">Content</th>
+        <th style="width: 40%;">Description</th>
+        <th style="width: 15%;">Update</th>
+
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image_Address" alt="Avatar" style="border-radius: 10px; max-width: 150px; height: auto;">
+                    </td>
+                    <td>@item.Title</td>
+                    <td>@item.Description2</td>
+                    <td>@item.Description1</td>
+                    <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#@item.AdviceId">Update</button></td>
+                    
+                    <div class="modal fade" id="@item.AdviceId" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>Product Information Update Page</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="/AdviceMenu/AdviceEdit/@item.AdviceId">
+                                        <div class="modal-body">
+                                            <label>Title</label>
+                                            <input type="text" name="Title" class="form-control" value="@item.Title">
+                                            <label>Image Url</label>
+                                            <input type="text" name="Image_Address" class="form-control" value="@item.Image_Address">
+                                            <label>Content</label>
+                                            <input type="text" name="Description2" class="form-control" value="@item.Description2">
+
+                                            <label>Description</label>
+                                            <textarea class="form-control" name="Description1" rows="15" style="  height: 150px;">@item.Description1</textarea>
+
+
+
+                                        </div>
+                                        <br />
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-warning">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+  

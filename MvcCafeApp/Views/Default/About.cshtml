@@ -1,0 +1,20 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_About>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+                <img src="~/Restaurantly/assets/img/about.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <p class="fst-italic">
+                @item.Description
+            </p>
+
+        </div>
+    }
+</div>

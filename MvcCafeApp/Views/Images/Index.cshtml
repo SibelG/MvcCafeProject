@@ -1,0 +1,97 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Images>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".imageAddBtn").click(function () {
+                    $("#imageAddModal").modal("show");
+                });
+
+                $("#imageAddForm").submit(function (e) {
+                    e.preventDefault(); // Formun varsayılan gönderimini engelle
+
+                    var form = $(this);
+                    var url = form.attr("action");
+                    var imageAddress = $("#ImageUrl").val();
+
+                    $.post(url, { imageAddress: imageAddress }, function (data) {
+                        // Kaydetme işlemi tamamlandıktan sonra yapılacak işlemler
+                        // Örneğin, başarılı bir kaydetme mesajı gösterebilirsiniz
+                        alert("Kaydetme işlemi başarıyla gerçekleştirildi.");
+
+                        // Modalı kapat
+                        $("#imageAddModal").modal("hide");
+                        location.reload();
+                    });
+                });
+            });
+        </script>
+
+    </head>
+
+</head>
+
+<h2>Business Photos</h2>
+<hr />
+<div class="desc"><a href="#" class="btn btn-primary imageAddBtn">Add Image</a></div>
+<!-- Resim Ekle Modal -->
+<div id="imageAddModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header">
+                    <h4>Product Informaton Update Page</h4>
+
+                </div>
+
+            </div>
+            <div class="modal-body">
+                <form id="imageAddForm" method="POST" action="/Images/AddImage">
+                    <label>Image Url Address</label>
+                    <input type="file" id="ImageUrl" name="ImageUrl" class="form-control" placeholder="Image Url">
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="kaydetBtn">Save</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/light-bootstrap-dashboard-master/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        <div class="gallery">
+            <a>
+                <img src="@item.ImageUrl" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc"><a href="/Resimler/ResimSil/@item.ImageId" class="btn btn-danger">Sil</a></div>
+
+        </div>
+
+    }
+
+</body>
+
+</html>
+
+
+
+
+

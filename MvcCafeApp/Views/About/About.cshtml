@@ -1,0 +1,17 @@
+﻿@model Restaurant_Project.Models.Entity.Tbl_About
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h3> About Update Page</h3>
+<br />
+<form method="post">
+    @Html.Label("Description")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", style = "height:120px" })
+
+    <br />
+    <button class="btn btn-success">Update</button>
+</form>

@@ -1,0 +1,138 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <link href="~/light-bootstrap-dashboard-master/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/light-bootstrap-dashboard-master/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/light-bootstrap-dashboard-master/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Restaurantly Admin Panel</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="/light-bootstrap-dashboard-master/assets/css/bootstrap.min.css" rel="stylesheet" />
+  
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/light-bootstrap-dashboard-master/assets/css/demo.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="/Default/Index" class="simple-text">
+                        Restaurantly 
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Login/LoginEdit/1">
+                            <i class="nc-icon nc-single-02"></i>
+                            <p>Logın</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/About/About/1">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>About</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/WhoSelect/Index/">
+                            <i class="nc-icon nc-satisfied"></i>
+                            <p>Who are We</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdviceMenu/Index/">
+                            <i class="nc-icon nc-bullet-list-67"></i>
+                            <p>Advıce Menu</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Menu/Index/">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Menu</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Booking/Index/">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Rezervatıon Panel</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Images/Index/">
+                            <i class="nc-icon nc-album-2"></i>
+                            <p>Images</p>
+                        </a>
+                    </li>
+               
+                    <li>
+                        <a class="nav-link" href="/Admin/Index">
+                            <i class="nc-icon nc-settings-gear-64"></i>
+                            <p>Settıngs</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item active active-pro">
+                        <a class="nav-link active" href="/Login/LogOut">
+                            <i class="nc-icon nc-button-power"></i>
+                            <p>LogOut</p>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="section">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+
+</body>
+<!--   Core JS Files   -->
+<script src="/light-bootstrap-dashboard-master/assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="/light-bootstrap-dashboard-master/assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="/light-bootstrap-dashboard-master/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="/light-bootstrap-dashboard-master/assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="/light-bootstrap-dashboard-master/assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="/light-bootstrap-dashboard-master/assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="/light-bootstrap-dashboard-master/assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="/light-bootstrap-dashboard-master/assets/js/demo.js"></script>
+
+</html>

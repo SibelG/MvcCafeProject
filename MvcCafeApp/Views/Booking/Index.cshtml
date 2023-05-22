@@ -1,0 +1,73 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Booking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Rezervation List</h2>
+<hr />
+
+<div class="card-body table-full-width table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <th style="width: 10%;"></th>
+        <th style="width: 30%;">Name Lastname</th>
+        <th style="width: 20%;">Phone Number</th>
+        <th style="width: 15%;">Person Count</th>
+        <th style="width: 20%;">Rezervation Details</th>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       
+                        <img src="~/light-bootstrap-dashboard-master/assets/img/faces/face-0.jpg" alt="Avatar" style="border-radius: 50px; max-width: 50px; height: auto;">
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Person_Count</td>
+
+
+
+                    <td>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.BookingId">Detail</button>
+                        <div class="modal fade" id="@item.BookingId" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>Rezervation Information</h4>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Name-Lastname:</strong> @item.Name</p>
+                                        <p><strong>Phone Number:</strong> @item.PhoneNumber</p>
+                                        <p><strong>Person Count:</strong> @item.Person_Count</p>
+                                        <p><strong>Description:</strong> @item.Description</p>
+                                        <p><strong>Date:</strong> @item.Date</p>
+                                        <p><strong>Time:</strong> @item.Time</p>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <a href="/Booking/BookingDelete/@item.BookingId" class="btn btn-danger">Cancel Rezervation</a>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,28 @@
+﻿@model Restaurant_Project.Models.Entity.Tbl_Admin
+@{
+    ViewBag.Title = "AdminAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>New Admin Add Page</h2>
+<br />
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" placeholder="Enter User Name" name="UserName">
+            </div>
+        </div>
+        <br />
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" class="form-control" placeholder="Enter Password" name="Password">
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <button class="btn btn-success">Save</button>
+</form>

@@ -1,0 +1,55 @@
+﻿@using Restaurant_Project.Models.Entity
+@model List<Tbl_Booking>
+
+<div class="col-lg-8 mt-5 mt-lg-0">
+
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name and LastName" required>
+                </div>
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="Email" id="email" placeholder="E-Mail Address" required>
+                </div>
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="PhoneNumber" id="phone" placeholder="Your Phone Number" required>
+                </div>
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <input type="date" name="Date" class="form-control">
+                </div>
+                <br />
+
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <input type="time" name="Time" class="form-control">
+                </div>
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" name="Person_Count" id="people" placeholder="Person Count" required>
+                </div>
+                <br />
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" name="Description" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <br />
+        <div class="text-center"><button type="submit" class="book-a-table-btn" style="background: #cda45e ">Make a Rezervation</button></div>
+
+    </form>
+
+</div>
+
